@@ -30,9 +30,9 @@ async function init() {
           "INSERT INTO TABLE products(title, price)"
         );
         const row = resultQuery.rows[0];
-        return response.status(200).json(row);
+        return res.status(200).json(row);
       } catch (error) {
-        return response.status(401).json(error);
+        return res.status(401).json(error);
       }
     });
     app.listen(3000);
