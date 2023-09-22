@@ -29,7 +29,7 @@ async function init() {
       const { title, price } = req.body;
       try {
         const resultQuery = await pool.query(
-          "INSERT INTO TABLE products(title, price)"
+          "INSERT INTO products(title, price)"
         );
         const row = resultQuery.rows[0];
         return res.status(200).json(row);
