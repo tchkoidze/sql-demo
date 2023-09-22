@@ -29,7 +29,6 @@ export const deleteProduct = async (req, res) => {
 
   try {
     await pool.query("DELETE FROM products WHERE id=$1", [id]);
-    const row = resultQuery.rows[0];
     return res.status(201).json({ message: "product deleted!" });
   } catch (error) {
     return res.status(401).json(error);
