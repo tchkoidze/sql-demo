@@ -1,6 +1,7 @@
 import express, { request, response } from "express";
 import pool, { createTable } from "./config/sql.js";
 import bodyParser from "body-parser";
+import cors from "cors";
 
 const app = express();
 
@@ -14,6 +15,7 @@ async function init() {
 
   function serverStart() {
     app.use(bodyParser.json());
+    app.use(cors());
     app.get("/api/products", async (_, response) => {
       try {
         const resultQuery = await pool.query("SELECT * FROM products");
